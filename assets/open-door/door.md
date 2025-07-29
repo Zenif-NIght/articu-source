@@ -5,6 +5,7 @@
 ![Jurassic testbed Door](images/door.png)
 It's not just a door... it's a *Jurassic testbed* for robotic dexterity.
 
+![alt text](images/close_up.png)
 ---
 
 ## 🧠 Features
