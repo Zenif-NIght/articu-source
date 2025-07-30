@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.23329400651878446, -2.401307932461492, 1.61511270182106)
-                double3 target = (-0.11453102111729796, 0.6574118978054742, 0.491588047434099)
+                double3 position = (0.8237506770158797, -2.1635929201353066, 3.0357168678293225)
+                double3 target = (-0.7185967934442189, 0.7523491877844881, 0.41659380406698165)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -58,7 +58,7 @@ def Xform "World"
             texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
                 interpolation = "varying"
             )
-        }
+                    }
 
         def Plane "CollisionPlane" (
             prepend apiSchemas = ["PhysicsCollisionAPI"]
@@ -155,24 +155,4 @@ over "Render" (
 {
 }
 
-def CesiumDataPrim "Cesium"
-{
-    prepend rel cesium:selectedIonServer = </CesiumServers/IonOfficial>
-}
-
-def CesiumGeoreferencePrim "CesiumGeoreference"
-{
-    matrix4d cesium:ecefToUsdTransform = ( (0.9647534819407177, 0.1682239812131189, -0.20236455032458023, 0), (-0.2631553136139595, 0.6167258011721835, -0.741888513919219, 0), (2.7755575615628914e-17, 0.7689928337204038, 0.6392573986170699, 0), (-1.1260326425004901e-10, 21025.701877878048, -6371656.822771804, 1) )
-}
-
-def "CesiumServers"
-{
-    def CesiumIonServerPrim "IonOfficial"
-    {
-        string cesium:displayName = "ion.cesium.com"
-        string cesium:ionServerApiUrl = "https://api.cesium.com/"
-        int64 cesium:ionServerApplicationId = 413
-        string cesium:ionServerUrl = "https://ion.cesium.com/"
-    }
-}
 
