@@ -2,6 +2,8 @@
 
 **Open_Door** is an articulated USD asset designed for simulating hinged mechanisms like doors, gates, or latches for training robotic manipulation policies in physics-based environments (e.g., Isaac Sim).
 
+youtube video: https://youtu.be/sJcrdDYPJ1w
+
 ![Jurassic testbed Door](images/door.png)
 It's not just a door... it's a *Jurassic testbed* for robotic dexterity.
 
