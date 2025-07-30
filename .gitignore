@@ -16,7 +16,7 @@ eggs/
 .eggs/
 lib/
 lib64/
-parts/
+# parts/ # for USD imports we need to have this
 sdist/
 var/
 wheels/
