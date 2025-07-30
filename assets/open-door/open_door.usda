@@ -71,7 +71,7 @@ def Xform "World"
 
     def Xform "Open_Door" (
         kind = "assembly"
-        prepend payload = @../../../door_09/Assembly_1_edit.usd@
+        prepend payload = @door_09_1/Assembly_1_edit.usda@
     )
     {
         over "Assembly_1"

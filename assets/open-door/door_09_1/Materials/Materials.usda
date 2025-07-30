@@ -1,0 +1,118 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Scope "Looks"
+    {
+        def Material "Mercury"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Mercury/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Mercury/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Mercury/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.9019608, 0.9019608, 0.9019608)
+                color3f inputs:emissive_color = (0, 0, 0)
+                float inputs:emissive_intensity = 0
+                bool inputs:enable_emission = 0
+                float inputs:metallic_constant = 0
+                float inputs:reflection_roughness_constant = 0.5
+                token outputs:out
+            }
+        }
+
+        def Material "Gray_Nurse"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Gray_Nurse/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Gray_Nurse/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Gray_Nurse/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.91764706, 0.91764706, 0.91764706)
+                color3f inputs:emissive_color = (0, 0, 0)
+                float inputs:emissive_intensity = 0
+                bool inputs:enable_emission = 0
+                float inputs:metallic_constant = 0
+                float inputs:reflection_roughness_constant = 0.5
+                token outputs:out
+            }
+        }
+
+        def Material "Harvest_Gold"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Harvest_Gold/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Harvest_Gold/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Harvest_Gold/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.8392157, 0.7019608, 0.4392157)
+                color3f inputs:emissive_color = (0, 0, 0)
+                float inputs:emissive_intensity = 0
+                bool inputs:enable_emission = 0
+                float inputs:metallic_constant = 0
+                float inputs:reflection_roughness_constant = 0.5
+                token outputs:out
+            }
+        }
+
+        def Material "Nomad"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Nomad/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Nomad/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Nomad/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.7019608, 0.68235296, 0.62352943)
+                color3f inputs:emissive_color = (0, 0, 0)
+                float inputs:emissive_intensity = 0
+                bool inputs:enable_emission = 0
+                float inputs:metallic_constant = 0
+                float inputs:reflection_roughness_constant = 0.5
+                token outputs:out
+            }
+        }
+
+        def Material "Shady_Lady"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Shady_Lady/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Shady_Lady/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Shady_Lady/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.64705884, 0.64705884, 0.64705884)
+                color3f inputs:emissive_color = (0, 0, 0)
+                float inputs:emissive_intensity = 0
+                bool inputs:enable_emission = 0
+                float inputs:metallic_constant = 0
+                float inputs:reflection_roughness_constant = 0.5
+                token outputs:out
+            }
+        }
+    }
+}
+

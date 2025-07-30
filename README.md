@@ -72,6 +72,28 @@ git clone https://github.com/Zenif-NIght/articu-source.git
 
 Want to train a T-RL agent? Just point it at one of the `/assets` and let the extinction events begin.
 
+Install the dependencies if needed:
+# 1. Create new environment
+
+```bash
+
+
+conda create -n usd-env python=3.10 -y
+conda activate usd-env
+
+```
+# 2. Install USD and dependencies
+
+```
+pip install usd-core
+```
+
+# 3. Set up environment variables
+
+```bash
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib/python3.10/site-packages/usd_core.libs:$LD_LIBRARY_PATH
+```
+
 ---
 
 ## 📜 License

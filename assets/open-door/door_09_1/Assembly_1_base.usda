@@ -1,0 +1,177 @@
+#usda 1.0
+(
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    kind = "assembly"
+)
+{
+    def Xform "Assembly_1" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI", "PhysxArticulationAPI"]
+        kind = "assembly"
+    )
+    {
+        bool physxArticulation:enabledSelfCollisions = 0
+
+        def Xform "latch" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+            instanceable = true
+            kind = "group"
+            prepend references = @./parts/latch_J3D.usda@
+        )
+        {
+            uniform token physics:approximation = "convexHull"
+            quatd xformOp:orient = (0.9999999999999943, -1.0165470885639771e-16, -1.6485306032341473e-16, -2.289834988289398e-16)
+            double3 xformOp:translate = (-0.9509903618034133, 0.0031570171642291006, 0.008809159965515583)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Xform "handel" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+            instanceable = true
+            kind = "group"
+            prepend references = @./parts/handel_JnD.usda@
+        )
+        {
+            uniform token physics:approximation = "convexHull"
+            quatd xformOp:orient = (0.987688340595131, 9.81139398996805e-16, 0.1564344650402296, -1.3964220894118844e-15)
+            double3 xformOp:translate = (-1.1906064292879217, 0.0031570171642361367, 0.3174867709359996)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Xform "Hinge_Door" (
+            kind = "assembly"
+        )
+        {
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-1.0119769467324944, 0.3262894822056752, 0.7918884081514861)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+            def Xform "HingeLeaf" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsCollisionAPI"]
+                kind = "group"
+            )
+            {
+                def Xform "Wood_Door" (
+                    prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+                    instanceable = true
+                    kind = "subcomponent"
+                    prepend references = @./parts/Wood_Door_JHD.usda@
+                )
+                {
+                    uniform token physics:approximation = "convexHull"
+                    quatd xformOp:orient = (0.9999999999999966, 5.234102313716242e-17, -1.6235060292012427e-16, -3.538835890992699e-16)
+                    double3 xformOp:translate = (0.062134251255798856, -0.3231324650414455, -0.7830792481859715)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+                }
+
+                def Xform "HingePin" (
+                    prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+                    instanceable = true
+                    kind = "subcomponent"
+                    prepend references = @parts/HingePin_JTD.usda@
+                )
+                {
+                    uniform token physics:approximation = "convexHull"
+                    quatd xformOp:orient = (-0.7071067811865356, -2.10229222288945e-16, 3.402900563790397e-18, 0.7071067811865481)
+                    double3 xformOp:translate = (0.06094362205579851, -0.36913346504144506, 0.22974575181402934)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+                }
+
+                def Xform "HingeLeaf"
+                {
+                    def Xform "HingeLeaf" (
+                        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+                        instanceable = true
+                        kind = "subcomponent"
+                        prepend references = @parts/HingeLeaf_JHD_1.usda@
+                    )
+                    {
+                        uniform token physics:approximation = "convexHull"
+                        quatd xformOp:orient = (1.1386052595342352e-17, 0.707106781186548, 0.7071067811865364, 2.1821237432049937e-16)
+                        double3 xformOp:translate = (0.06094362205579862, -0.36913346504144495, 0.22974575181402912)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+                    }
+                }
+            }
+        }
+
+        def Xform "Frame" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsCollisionAPI"]
+            kind = "group"
+        )
+        {
+            def Xform "HingeLeaf_01" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+                instanceable = true
+                kind = "subcomponent"
+                prepend references = @parts/HingeLeaf_JHD.usda@
+            )
+            {
+                uniform token physics:approximation = "convexHull"
+                quatd xformOp:orient = (0.7071067811865462, 6.640247080124832e-17, -6.640247080124861e-17, 0.7071067811865476)
+                double3 xformOp:translate = (-0.9510333246766957, -0.04284398283576966, 1.0216341599655152)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+
+            def Xform "Frame" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+                instanceable = true
+                kind = "subcomponent"
+                prepend references = @./parts/Frame_JQD.usda@
+            )
+            {
+                uniform token physics:approximation = "convexHull"
+                quatd xformOp:orient = (1, 0, 0, 0)
+                double3 xformOp:translate = (-0.9495614496766955, 0.0031570171642303357, 0.008809159965515123)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+            }
+        }
+
+        def PhysicsRevoluteJoint "Revolute_1" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Assembly_1/Hinge_Door/HingeLeaf>
+            rel physics:body1 = </World/Assembly_1/handel>
+            point3f physics:localPos0 = (0.9162093, -0.35805747, 0.13132074)
+            point3f physics:localPos1 = (0.854075, -0.034925, 0.9144)
+            quatf physics:localRot0 = (0.70710677, 0.70710677, 0, 0)
+            quatf physics:localRot1 = (0.69840115, 0.69840115, -0.11061587, 0.11061587)
+        }
+
+        def PhysicsPrismaticJoint "Slider_1" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear"]
+        )
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Assembly_1/Hinge_Door/HingeLeaf>
+            rel physics:body1 = </World/Assembly_1/latch>
+            point3f physics:localPos0 = (0.93976307, -0.34059498, 0.13132074)
+            point3f physics:localPos1 = (0.8787765, -0.0174625, 0.9144)
+            quatf physics:localRot0 = (0.5, 0.5, 0.5, 0.5)
+            quatf physics:localRot1 = (0.5, 0.5, 0.5, 0.5)
+            float physics:lowerLimit = -0.00635
+            float physics:upperLimit = 0.00508
+        }
+
+        def PhysicsRevoluteJoint "Revolute_2" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Z"
+            rel physics:body0 = </World/Assembly_1/Frame>
+            rel physics:body1 = </World/Assembly_1/Hinge_Door/HingeLeaf>
+            point3f physics:localPos0 = (-0.95103335, -0.042843983, 1.0216341)
+            point3f physics:localPos1 = (0.060943622, -0.36913347, 0.22974575)
+            quatf physics:localRot0 = (-1.6081226e-16, 0.70710677, 0.70710677, 6.640247e-17)
+            quatf physics:localRot1 = (-1.6081226e-16, 0.70710677, 0.70710677, 6.640247e-17)
+            float physics:lowerLimit = -180
+            float physics:upperLimit = 0
+        }
+    }
+}
+
